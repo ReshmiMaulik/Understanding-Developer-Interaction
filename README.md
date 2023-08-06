@@ -1,1 +1,3 @@
 # Understanding-Developer-Interaction
+Here We have considered three real world data from open software development ecosystems namely Android, Eclipse and OpenStack. We are trying to find out causal relationship
+between repeated developer interactions and the bug resolution time. For this we have used the structural Equation Modeling. We have used the Lavaan Package from R which is an open free resource. We have considered three separate coding files- Android.R, Eclipse.R and OpenStack.R. Each contain the structural equation model we have formed for our problem. We have also given three separate databases required by the softwares for smooth running. You may have to download the files into your local drive and set path accordingly to run and compile the files properly.
