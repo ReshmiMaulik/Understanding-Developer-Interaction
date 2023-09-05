@@ -41,7 +41,7 @@ str(data.pca)
 require(lavaan)
 
 model1 <- '
-             AC =~ CC + CI
+             ATC =~ CC + CI
             IDC =~ OE +  OW
             ITC =~ NI + FI + SI 
             RI ~  CI + SI
