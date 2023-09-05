@@ -24,7 +24,7 @@ df1 <- apply(df1,  2, scale)
 summary(df1)
 
 modelA <- '
-             AC =~  CC + CI 
+             ATC =~  CC + CI 
             IDC =~   OE + 1* OW 
             ITC =~   SI + NI + FI 
             NI ~~ SI
