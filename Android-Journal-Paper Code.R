@@ -5,7 +5,7 @@ setwd(" ") #Set the path of Working Directory
 #url=""https://raw.githubusercontent.com/ReshmiMaulik/Understanding-Developer-Interaction/main/Data/workingdataA.csv"
 
 data<-read.csv("workingdataA.csv " )
-data <- read.csv(url)
+#data <- read.csv(url)
 #Set the path for the csv (database) file
 #Count of Rows and columns
 dim(data)
