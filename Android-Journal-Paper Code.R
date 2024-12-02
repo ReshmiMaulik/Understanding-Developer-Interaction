@@ -31,10 +31,10 @@ modelA <- '
             ITC =~   SI + NI + FI 
             NI ~~ SI
             SI ~~ FI
-            IDC ~~ AC
+            IDC ~~ ATC
             ITC ~~ CC
             RI~  CI + SI
-            ET ~ AC + IDC + ITC + RI
+            ET ~ ATC + IDC + ITC + RI
             '
 fitA <- sem(modelA, data=df1, std.lv=TRUE , estimator="DWLS")
 
@@ -66,3 +66,28 @@ inspect(fitA,'r2') # variance explained
 lavInspect(fitA, "cov.lv") #Covariance matrix of latent variables
 
 inspect(fitA,"sampstat")# sample means and covariance matrix
+
+
+#----Mediation analysis---
+
+#Indirect Effect
+modelM <- '
+            ATC =~    CC + CI 
+            IDC =~ OE + 1 * OW
+            ITC =~ NI + FI + SI 
+            RI ~ a1* CI + a2*SI
+            NI ~~ SI
+            SI ~~ FI
+            IDC ~~ ATC
+            ITC ~~ CC
+            ET ~  b1* ATC + b2* IDC + b3* ITC + b4*RI
+            
+           indirect1:=a1*b4
+           indirect2:=a2*b4
+           overallindirect:= indirect1 + indirect2
+           total:=overallindirect + b1 + b2 + b3
+            '
+
+fitmod <- sem(modelM, data=df1)
+#summarize Sobel test or Delta
+summary(fitmod,fit.measures=TRUE, rsquare= T)
