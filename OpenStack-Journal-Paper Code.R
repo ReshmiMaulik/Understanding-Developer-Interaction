@@ -85,4 +85,26 @@ semPaths(fit1,what='std',
          edge.label.cex=1.25, curvePivot = TRUE, 
          fade=FALSE)
 
+#----Mediation analysis---
 
+#Indirect Effect
+modelM <- '
+            ATC =~    CC + CI 
+            IDC =~ OE +  OW
+            ITC =~ NI + FI + SI 
+            RI ~ a1* CI + a2*SI
+            ET ~~ OW
+            RI ~~  CC
+            ITC ~~ CC
+            NI ~~ FI
+            ET ~  b1* ATC + b2* IDC + b3* ITC + b4*RI
+            
+           indirect1:=a1*b4
+           indirect2:=a2*b4
+           overallindirect:= indirect1 + indirect2
+           total:=overallindirect + b1 + b2 + b3
+            '
+
+fitmod <- sem(modelM, data=df1)
+#summarize Sobel test or Delta
+summary(fitmod,fit.measures=TRUE, rsquare= T)
