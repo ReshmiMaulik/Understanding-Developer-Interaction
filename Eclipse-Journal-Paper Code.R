@@ -65,3 +65,28 @@ inspect(fitE,'r2') # variance explained
 lavInspect(fitE, "cov.lv") #Covariance matrix of latent variables
 
 inspect(fitE,"sampstat")# sample means and covariance matrix
+
+
+#_________Indirect Effect _______
+
+modelM<-'
+          ATC =~  CC + CI + Pr
+          IDC =~   OE + OW + Pr
+          ITC =~   SI + NI + FI 
+          RI ~  a1 *CC + a2 *CI + a3* OE
+          CC ~~ Pr
+          ET ~~ OW
+          OW ~~ CC
+          OE ~~ CI
+          ITC ~~ CC
+          ITC ~~ CI
+          ET ~  b1 *ATC + b2* IDC + b3* ITC + b4*RI
+          indirect1:=a1*b4
+          indirect2:=a2*b4
+          overallindirect:= indirect1 + indirect2
+          total:=overallindirect + b1 + b2 + b3
+'
+
+fitmod <- sem(modelM, data=df1)
+#summarize Sobel test or Delta
+summary(fitmod,fit.measures=TRUE, rsquare= T)
