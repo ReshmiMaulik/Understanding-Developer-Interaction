@@ -13,7 +13,7 @@ View(data)
 # Print all variable names in a data frame
 names(data)
 
-df1 <- data[,c("ET","CC","CI","OE","OW","NI","SI","RI","FI")]
+df1 <- data[,c("ET","CC","PR","CI","OE","OW","NI","SI","RI","FI")]
 
 # remove the first column from data matrix
 dfN <- df[, -1]
