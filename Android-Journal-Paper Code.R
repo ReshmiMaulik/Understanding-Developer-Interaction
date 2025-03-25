@@ -71,9 +71,9 @@ inspect(fitA,"sampstat")# sample means and covariance matrix
 #Indirect Effect
 modelM <- '
             ATC =~    CC + CI 
-            IDC =~ OE + 1 * OW
+            IDC =~ OE + PR+ OW
             ITC =~ NI + FI + SI 
-            RI ~ a1* CI + a2*SI
+            RI ~ a1* CC + a2*CI + a3* OE
             NI ~~ SI
             SI ~~ FI
             IDC ~~ ATC
@@ -82,7 +82,8 @@ modelM <- '
             
            indirect1:=a1*b4
            indirect2:=a2*b4
-           overallindirect:= indirect1 + indirect2
+           indirect3:= a3*b4 
+           overallindirect:= indirect1 + indirect2 + indirect3
            total:=overallindirect + b1 + b2 + b3
             '
 
