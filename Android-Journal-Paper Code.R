@@ -27,9 +27,9 @@ summary(df1)
 
 modelA <- '
              ATC =~  CC + CI 
-            IDC =~   OE + Pr + OW 
+            IDC =~   OE + PR + OW 
             ITC =~   SI + NI + FI 
-            CI ~~ Pr
+            CI ~~ PR
             SI ~~ RI            
             RI~  CC + CI + OE
             ET ~ ATC + IDC + ITC + RI
