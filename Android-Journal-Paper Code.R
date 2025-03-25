@@ -27,13 +27,11 @@ summary(df1)
 
 modelA <- '
              ATC =~  CC + CI 
-            IDC =~   OE + 1* OW 
+            IDC =~   OE + Pr + OW 
             ITC =~   SI + NI + FI 
-            NI ~~ SI
-            SI ~~ FI
-            IDC ~~ ATC
-            ITC ~~ CC
-            RI~  CI + SI
+            CI ~~ Pr
+            SI ~~ RI            
+            RI~  CC + CI + OE
             ET ~ ATC + IDC + ITC + RI
             '
 fitA <- sem(modelA, data=df1, std.lv=TRUE , estimator="DWLS")
