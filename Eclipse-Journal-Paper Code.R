@@ -27,7 +27,7 @@ modelE<-'
           ATC =~  CC + CI 
           IDC =~   OE + OW + PR
           ITC =~   SI + NI + FI 
-          RI ~ CI + SI + OE
+          RI ~ CI + SI 
           ET ~~ OW
           ATC ~~ Pr
           OE ~~ CI
