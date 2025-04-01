@@ -72,13 +72,12 @@ modelM<-'
           ATC =~  CC + CI + Pr
           IDC =~   OE + OW + Pr
           ITC =~   SI + NI + FI 
-          RI ~  a1 *CC + a2 *CI + a3* OE
-          CC ~~ Pr
+          RI ~  a1 *CI + a2 *SI 
           ET ~~ OW
-          OW ~~ CC
+          ATC ~~ Pr
           OE ~~ CI
-          ITC ~~ CC
-          ITC ~~ CI
+          ITC ~~ PR
+          FI ~~ NI
           ET ~  b1 *ATC + b2* IDC + b3* ITC + b4*RI
           indirect1:=a1*b4
           indirect2:=a2*b4
