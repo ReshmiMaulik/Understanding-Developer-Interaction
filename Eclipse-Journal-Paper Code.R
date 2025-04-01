@@ -24,17 +24,16 @@ df1 <- apply(df1,  2, scale)
 summary(df1)
 
 modelE<-'
-          ATC =~  CC + CI + Pr
-          IDC =~   OE + OW + Pr
+          ATC =~  CC + CI 
+          IDC =~   OE + OW + PR
           ITC =~   SI + NI + FI 
-          RI ~ CC + CI + OE
-          CC ~~ Pr
+          RI ~ CI + SI + OE
           ET ~~ OW
-          OW ~~ CC
+          ATC ~~ Pr
           OE ~~ CI
-          ITC ~~ CC
-          ITC ~~ CI
-          ET ~  AC + IDC + ITC + RI'
+          ITC ~~ PR
+          FI ~~ NI
+          ET ~  ATC + IDC + ITC + RI'
 
 fitE <- sem(modelE, data=df1, std.lv=TRUE , estimator="DWLS")
 
