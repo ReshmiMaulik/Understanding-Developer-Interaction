@@ -25,18 +25,19 @@ df1 <- apply(df1,  2, scale)
 
 summary(df1)
 
-modelA <- '
+modelA <- 
+            '
              ATC =~  CC + CI 
-            IDC =~   OE + PR + OW 
+            IDC =~   OE  + OW + PR
             ITC =~   SI + NI + FI 
             CI ~~ RI
             FI ~~ SI
             SI ~~ NI
             CI ~~ SI
             CI ~~ OW
-            ITC ~~ CC           
-            RI~  CI + SI 
-            ET ~ ATC + IDC + ITC + RI
+            ITC ~~ CC
+            RI ~ CI + SI 
+            ET ~ ATC + IDC + ITC + RI            
             '
 fitA <- sem(modelA, data=df1, std.lv=TRUE , estimator="DWLS")
 
