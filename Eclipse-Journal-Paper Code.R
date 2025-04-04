@@ -65,6 +65,7 @@ lavInspect(fitE, "cov.lv") #Covariance matrix of latent variables
 
 inspect(fitE,"sampstat")# sample means and covariance matrix
 
+parameterEstimates(fitE)  # for relationship estimation
 
 #_________Indirect Effect _______
 
