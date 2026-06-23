@@ -2,7 +2,7 @@ library(lavaan)
 #Importing the csv data 
 
 setwd(" ") #Set the path of Working Directory
-url = "https://raw.githubusercontent.com/ReshmiMaulik/Discovering-the-Causal-Effects-on-Bug-Resolution/main/workingdataO.csv"
+url = "https://raw.githubusercontent.com/ReshmiMaulik/Understanding-Developer-Interaction/main/workingdataO.csv"
 
 data<-read.csv("workingdataA.csv " )
 #data <- read.csv(url)
