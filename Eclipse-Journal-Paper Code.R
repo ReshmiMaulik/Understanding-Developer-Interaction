@@ -70,7 +70,7 @@ parameterEstimates(fitE)  # for relationship estimation
 #_________Indirect Effect _______
 
 modelM<-'
-          ATC =~  CC + CI + Pr
+          ATC =~  CC + CI
           IDC =~   OE + OW + Pr
           ITC =~   SI + NI + FI 
           RI ~  a1 *CI + a2 *SI 
