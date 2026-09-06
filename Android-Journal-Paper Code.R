@@ -29,18 +29,16 @@ modelA <-
             '
              ATC =~  CC + CI 
             IDC =~   OE  + OW + PR
-            ITC =~   SI + NI + FI 
-            CI ~~ RI
+            ITC =~   SI + NI + FI             
             FI ~~ SI
-            SI ~~ NI
-            CI ~~ SI
-            CI ~~ OW
+            SI ~~ NI            
             ITC ~~ CC
             RI ~ CI + SI 
             ET ~ ATC + IDC + ITC + RI            
             '
 fitA <- sem(modelA, data=df1, std.lv=TRUE , estimator="DWLS")
-
+#CI ~~ RI 
+#CI ~~ SI, CI ~~ OW
 
 summary(fitA, standardized = TRUE, fit.measures = TRUE)
 
