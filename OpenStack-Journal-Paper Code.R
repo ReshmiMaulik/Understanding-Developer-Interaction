@@ -49,7 +49,7 @@ model1 <- '
             RI ~~  CC
             ITC ~~ CC
             NI ~~ FI
-            ET ~  AC +  IDC + ITC + RI
+            ET ~  ATC +  IDC + ITC + RI
             '
 
 #View model           
